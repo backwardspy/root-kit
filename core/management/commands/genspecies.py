@@ -16,7 +16,8 @@ class Command(BaseCommand):
         species_path = Path("species")
 
         print(
-            f"Loading assets from {assets_path} into {media_path} for fixture {fixture_path}"
+            f"Loading assets from {assets_path} "
+            f"into {media_path} for fixture {fixture_path}"
         )
 
         media_path.mkdir(parents=True, exist_ok=True)

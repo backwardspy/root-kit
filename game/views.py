@@ -4,7 +4,6 @@ import random
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models.query import QuerySet
 from django.views import View
 from django.views.generic import ListView, DetailView
 
