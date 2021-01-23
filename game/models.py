@@ -114,4 +114,7 @@ class MovesetEntry(models.Model):
         verbose_name_plural = "moveset"
 
     def __str__(self) -> str:
-        return f"{self.technique.name} for {self.bot_species.name} at level {self.learn_level}"
+        return (
+            f"{self.technique.name} for {self.bot_species.name} "
+            f"at level {self.learn_level}"
+        )
