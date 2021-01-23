@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}collection{% endblock %}
+
+{% block content%}
+
+<h2>Bot Collection</h2>
+
+<a href="{% url 'game:loadout' %}">Go to loadout</a>
+
+<p>You have {{ request.user.player.upgrade_parts }} upgrade parts</p>
+
+{% if object_list %}
+<ul>
+    {% for bot in object_list %}
+    <li>
+        <div class="panel">
+            {% include "bots/bot.html" %}
+            {% if not bot.is_in_loadout %}
+            <a href="{% url 'game:add-to-loadout' bot.uid %}" class="button button-outline">Add to loadout</a>
+            {% endif %}
+            <a href="{% url 'game:decompile' bot.uid %}" class="button button-outline">Decompile</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>You don't have any bots.</p>
+<p>Perhaps you should go and <a href="{% url 'game:encounter' %}">encounter</a> one.</p>
+{% endif %}
+
+{% endblock %}

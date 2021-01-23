@@ -1,0 +1,57 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>root:kit &middot; {% block title %}{% endblock %}</title>
+
+    <meta name="description" content="root:kit - a web game about collecting digital creatures">
+    <meta name="author" content="backwardspy">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+        integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+        crossorigin="anonymous" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="float-right">
+                {% if user.is_authenticated %}
+                Logged in as {{ user.username }} (<a href="{% url 'logout' %}">logout</a>)
+                {% if user.is_staff %}
+                <a href="{% url 'admin:index' %}">admin</a>
+                {% endif %}
+                {% else %}
+                Not logged in (<a href="{% url 'login' %}">login</a>)
+                {% endif %}
+            </div>
+            <h1>root:kit</h1>
+        </header>
+
+        <nav>
+            <a href="{% url 'index' %}">Return to index</a>
+        </nav>
+
+        <hr>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            {% comment %} {% if debug %}
+            <pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>
+            {% endif %} {% endcomment %}
+        </footer>
+
+    </div>
+</body>
+
+</html>

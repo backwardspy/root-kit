@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}decompile{% endblock title %}
+
+{% block content %}
+
+<div class="panel">
+    {% include "bots/bot.html" %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Decompile {{ bot.name }} into <strong>{{ bot.species.parts_value }} upgrade parts?</strong></label>
+        <input type="submit" value="do it">
+        <a href="{% url 'game:collection' %}" class="button button-outline">heck no, go back</a>
+    </form>
+</div>
+
+{% endblock content %}

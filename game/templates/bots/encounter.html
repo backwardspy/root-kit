@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}encounter{% endblock %}
+
+{% block content %}
+
+<p>You have encountered an unbound bot!</p>
+
+<div class="panel">
+    {% include "bots/bot.html" %}
+</div>
+
+<p>
+    What do you want to do?
+    <ul>
+        <li><a href="{% url 'game:collection' %}">Keep it</a></li>
+        <li><a href="{% url 'game:decompile' bot.uid %}">Decompile it</a></li>
+    </ul>
+</p>
+
+{% endblock %}
