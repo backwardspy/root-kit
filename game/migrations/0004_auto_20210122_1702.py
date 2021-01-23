@@ -6,29 +6,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('game', '0003_player_upgrade_parts'),
+        ("game", "0003_player_upgrade_parts"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='PlayerParty',
-            new_name='LoadoutEntry',
+            old_name="PlayerParty",
+            new_name="LoadoutEntry",
         ),
         migrations.RemoveConstraint(
-            model_name='loadoutentry',
-            name='unique_party_bot',
+            model_name="loadoutentry",
+            name="unique_party_bot",
         ),
         migrations.RemoveField(
-            model_name='player',
-            name='party',
+            model_name="player",
+            name="party",
         ),
         migrations.AddField(
-            model_name='player',
-            name='loadout',
-            field=models.ManyToManyField(through='game.LoadoutEntry', to='game.Bot'),
+            model_name="player",
+            name="loadout",
+            field=models.ManyToManyField(through="game.LoadoutEntry", to="game.Bot"),
         ),
         migrations.AddConstraint(
-            model_name='loadoutentry',
-            constraint=models.UniqueConstraint(fields=('player', 'bot'), name='unique_loadout_bot'),
+            model_name="loadoutentry",
+            constraint=models.UniqueConstraint(
+                fields=("player", "bot"), name="unique_loadout_bot"
+            ),
         ),
     ]

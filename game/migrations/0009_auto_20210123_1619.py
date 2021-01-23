@@ -7,13 +7,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('game', '0008_auto_20210123_1615'),
+        ("game", "0008_auto_20210123_1615"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='movesetentry',
-            name='learn_level',
-            field=models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(100)]),
+            model_name="movesetentry",
+            name="learn_level",
+            field=models.IntegerField(
+                default=1,
+                validators=[
+                    django.core.validators.MinValueValidator(1),
+                    django.core.validators.MaxValueValidator(100),
+                ],
+            ),
         ),
     ]

@@ -135,9 +135,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="player",
             name="party",
-            field=models.ManyToManyField(
-                through="game.PlayerParty", to="game.Bot"
-            ),
+            field=models.ManyToManyField(through="game.PlayerParty", to="game.Bot"),
         ),
         migrations.AddField(
             model_name="player",

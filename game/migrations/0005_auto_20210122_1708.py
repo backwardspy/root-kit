@@ -6,15 +6,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('game', '0004_auto_20210122_1702'),
+        ("game", "0004_auto_20210122_1702"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='player',
-            name='loadout',
+            model_name="player",
+            name="loadout",
         ),
         migrations.DeleteModel(
-            name='LoadoutEntry',
+            name="LoadoutEntry",
         ),
     ]

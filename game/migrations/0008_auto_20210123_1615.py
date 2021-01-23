@@ -6,16 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('game', '0007_auto_20210123_1533'),
+        ("game", "0007_auto_20210123_1533"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='movesetentry',
-            options={'verbose_name_plural': 'moveset'},
+            name="movesetentry",
+            options={"verbose_name_plural": "moveset"},
         ),
         migrations.AddConstraint(
-            model_name='movesetentry',
-            constraint=models.UniqueConstraint(fields=('bot_species', 'technique'), name='unique_species_technique'),
+            model_name="movesetentry",
+            constraint=models.UniqueConstraint(
+                fields=("bot_species", "technique"), name="unique_species_technique"
+            ),
         ),
     ]

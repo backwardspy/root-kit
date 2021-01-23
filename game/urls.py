@@ -10,7 +10,9 @@ urlpatterns = [
     # ex: /game/loadout/
     path("loadout/", views.Loadout.as_view(), name="loadout"),
     # ex: /game/loadout/add/1edb8915-2b32-417e-ad1a-07e4bf0418d2/
-    path("loadout/add/<uuid:uid>/", views.AddToLoadout.as_view(), name="add-to-loadout"),
+    path(
+        "loadout/add/<uuid:uid>/", views.AddToLoadout.as_view(), name="add-to-loadout"
+    ),
     # ex: /game/loadout/remove/1edb8915-2b32-417e-ad1a-07e4bf0418d2/
     path(
         "loadout/remove/<uuid:uid>/",
