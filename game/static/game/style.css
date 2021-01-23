@@ -1,0 +1,39 @@
+ul,
+ol {
+    list-style: none;
+}
+
+.dim {
+    opacity: 60%;
+}
+
+.panel {
+    padding: 2rem;
+    margin: 1rem 0;
+    border: 1px solid #f4f5f6;
+    border-radius: 2px;
+    box-shadow: -3px 2px 4px 0px rgba(0, 0, 0, 0.1)
+}
+
+.panel form,
+.panel input,
+.panel a {
+    margin: 0;
+}
+
+div.bot {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+div.bot>img.bot-sprite {
+    image-rendering: pixelated;
+    width: 64px;
+    margin-right: 2rem;
+}
+
+div.bot>.bot-level {
+    font-size: 0.8em;
+    margin-left: 0.5em;
+}

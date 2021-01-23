@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}login{% endblock %}
+
+{% block content%}
+
+{% if next %}
+<p>Please login to access this page.</p>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a class="float-right" href="{% url 'password_reset' %}">Reset password</a>
+    <p><input type="submit" value="login"></p>
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+<p><a href="{% url 'register' %}">Register for an account</a></p>
+
+{% endblock %}

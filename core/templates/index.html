@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}index{% endblock %}
+
+{% block content%}
+
+<h2>Bots</h2>
+<ul>
+    <li><a href="{% url 'game:collection' %}">Manage Collection</a></li>
+    <li><a href="{% url 'game:loadout' %}">Manage Loadout</a></li>
+</ul>
+
+<h2>Activities</h2>
+<ul>
+    <li><a href="{% url 'game:encounter' %}">Encounter</a></li>
+</ul>
+{% endblock %}

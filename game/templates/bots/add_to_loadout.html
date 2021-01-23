@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}add to loadout{% endblock %}
+
+{% block content%}
+
+<h2>Current loadout</h2>
+<ul>
+    {% for bot in loadout %}
+    <div class="panel">
+        {% include "bots/bot.html" %}
+    </div>
+    {% endfor %}
+</ul>
+
+<div class="panel">
+    {% include "bots/bot.html" %}
+</div>
+
+{% endblock %}
