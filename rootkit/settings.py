@@ -132,5 +132,4 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Bot settings
-BOT_NAME_MAX_LENGTH = 64
 BOT_MAX_LOADOUT_SIZE = 6

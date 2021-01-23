@@ -6,6 +6,16 @@ from django.utils.html import format_html
 from . import models
 
 
+class MovesetEntryInline(admin.TabularInline):
+    model = models.MovesetEntry
+    fields = (
+        "technique",
+        "learn_level",
+    )
+    ordering = ("learn_level",)
+    extra = 1
+
+
 @admin.register(models.Player)
 class PlayerAdmin(admin.ModelAdmin):
     fields = (
@@ -20,6 +30,7 @@ class PlayerAdmin(admin.ModelAdmin):
 class BotSpeciesAdmin(admin.ModelAdmin):
     list_display = ("name", "sprite_icon", "sprite", "mods_from")
     readonly_fields = ("sprite_thumbnail",)
+    inlines = (MovesetEntryInline,)
 
     def sprite_thumbnail(self, obj: models.BotSpecies) -> str:
         return format_html(
@@ -39,3 +50,8 @@ class BotAdmin(admin.ModelAdmin):
     list_display = ("name", "level", "species", "owner")
     fields = ("uid", "owner", "species", "name", "level")
     readonly_fields = ("uid",)
+
+
+@admin.register(models.Technique)
+class TechniqueAdmin(admin.ModelAdmin):
+    list_display = ("name", "efficacy", "power")
